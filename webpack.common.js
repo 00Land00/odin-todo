@@ -33,7 +33,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Webpack Template",
+      title: "Check-Cards",
       template: "./src/template.html",
     }),
   ],

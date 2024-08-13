@@ -1,5 +1,5 @@
 {
-  "name": "webpack-template",
+  "name": "odin-todo",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch --config webpack.dev.js",
     "start": "webpack serve --open --config webpack.dev.js",
+    "begin": "npm run watch | npm run start",
     "build": "webpack --config webpack.prod.js",
     "deploy": "git subtree push --prefix dist origin gh-pages"
   },
