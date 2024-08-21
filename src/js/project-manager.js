@@ -11,7 +11,7 @@ class _ProjectManager {
   }
 
   findProject(projectId) {
-    return this._projects.find(project => project.id === projectId);
+    return this._projects.find((project) => project.id === projectId);
   }
 
   updateProject(projectId, newName, newColor) {
@@ -21,7 +21,9 @@ class _ProjectManager {
   }
 
   removeProject(projectId) {
-    this._projects = this._projects.filter(project => project.id !== projectId);
+    this._projects = this._projects.filter(
+      (project) => project.id !== projectId
+    );
   }
 
   getProjects() {

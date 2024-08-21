@@ -11,7 +11,7 @@ class _TaskManager {
   }
 
   findTask(taskId) {
-    return this._tasks.find(task => task.id === taskId);
+    return this._tasks.find((task) => task.id === taskId);
   }
 
   updateTask(taskId, newDescription, newDate, newProjectId) {
@@ -22,7 +22,7 @@ class _TaskManager {
   }
 
   removeTask(taskId) {
-    this._tasks = this._tasks.filter(task => task.id !== taskId);
+    this._tasks = this._tasks.filter((task) => task.id !== taskId);
   }
 
   toggleTask(taskId) {

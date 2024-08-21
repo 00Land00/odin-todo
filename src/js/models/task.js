@@ -1,3 +1,5 @@
+import { ProjectManager } from "js/project-manager.js";
+
 import { isPast, isBefore } from "date-fns";
 
 export class Task {
@@ -54,9 +56,16 @@ export class Task {
     return this._projectId;
   }
   set projectId(newProjectId) {
-    if (typeof newProjectId !== "")
+    if (typeof newProjectId !== "number") {
+      console.error("[ERROR] New project id is not a number");
+      return;
+    }
 
-    // add logic to check if the newProjectId is in the list of projects
+    if (!ProjectManager.findProject(newProjectId)) {
+      console.error("[ERROR] New project id does not exist.");
+      return;
+    }
+
     this._projectId = newProjectId;
   }
 
@@ -75,7 +84,9 @@ export class Task {
     }
 
     if (isBefore(newDateCompleted, this.date)) {
-      console.error("[ERROR] Completion date cannot occur before the date this task was created.");
+      console.error(
+        "[ERROR] Completion date cannot occur before the date this task was created."
+      );
       return;
     }
 
@@ -87,4 +98,4 @@ export class Task {
   set completed(isCompleted) {
     this._completed = Boolean(isCompleted);
   }
-};
+}

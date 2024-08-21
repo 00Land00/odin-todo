@@ -30,12 +30,12 @@ export class Project {
       console.error("[ERROR] Name canont be empty.");
       return;
     }
-    
+
     this._name = newName;
   }
   get color() {
     return this._color;
-  } 
+  }
   set color(newColor) {
     if (!this.isValidColor(newColor)) {
       console.error("[ERROR] New color is not a valid hexadecimal string.");
@@ -44,4 +44,4 @@ export class Project {
 
     this._color = newColor;
   }
-};
+}
