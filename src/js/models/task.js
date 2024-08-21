@@ -31,6 +31,7 @@ export class Task {
       console.error("[ERROR] Description cannot be empty.");
       return;
     }
+
     this._description = newDescription;
   }
   get date() {
@@ -63,6 +64,11 @@ export class Task {
     return this._dateCompleted;
   }
   set dateCompleted(newDateCompleted) {
+    if (newDateCompleted === null) {
+      this._dateCompleted = null;
+      return;
+    }
+
     if (!(newDateCompleted instanceof Date)) {
       console.error("[ERROR] New completed date is not a Date object.");
       return;
