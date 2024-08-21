@@ -5,8 +5,8 @@ class _TaskManager {
     EventManager.emit("task-add", task, project);
   }
 
-  removeTask(task) {
-    EventManager.emit("task-remove", task);
+  removeTask(taskId) {
+    EventManager.emit("task-remove", taskId);
   }
 
   updateTask(taskId, updatedTask) {
@@ -15,6 +15,10 @@ class _TaskManager {
 
   toggleTaskComplete(task, value) {
     EventManager.emit("task-completeToggle", task, value);
+  }
+
+  moveTask(listId, taskId, newPosition) {
+    EventManager.emit("task-moveWithin", listId, taskId, newPosition);
   }
 }
 

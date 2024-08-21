@@ -1,5 +1,6 @@
 import { Task } from "js/models/task.js";
 import { TaskManager } from "js/models/task-manager.js";
+import { EventManager } from "js/models/event-manager.js";
 
 export class ListTemplate {
   static curId = 0;
@@ -11,6 +12,8 @@ export class ListTemplate {
     this._completedTasks = [];
 
     this._showTitle = Boolean(showTitle);
+
+    EventManager.on("task-moveWithin", this.moveTask.bind(this));
   }
 
   get id() {
@@ -96,7 +99,11 @@ export class ListTemplate {
     this.addTask(task);
   }
 
-  moveTask(taskId, newPosition) {
+  moveTask(listId, taskId, newPosition) {
+    if (listId !== this.id) {
+      return;
+    }
+
     if (newPosition >= this._tasks.length && newPosition < 0) {
       console.error("[ERROR] Invalid position for task");
       return;
@@ -116,21 +123,3 @@ export class ListTemplate {
     return this._completedTasks;
   }
 }
-
-// class TodayList extend list-template
-// on - taskAdd
-// call isValidTask
-// isValidTask  override
-// check if date, regardless of project, is today or in the past
-
-// class ProjectTodayList  extend list-template
-// constructor
-// this.project = project
-// this.todayList = new TodayList
-// on - taskAdd
-// call isValidTask
-// isValidTask override
-// check if project, regardless of date, matches project assigned here
-// call this.todayList's isValidTask
-
-// class
