@@ -3,6 +3,7 @@ import { Project } from "js/models/projects.js";
 class _ProjectManager {
   constructor() {
     this._projects = [];
+    this.curProject = null;
   }
 
   createProject(name, color) {
