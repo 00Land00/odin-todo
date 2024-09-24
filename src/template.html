@@ -6,178 +6,112 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <div class="page-container">
-      <div class="sidebar">
-        <div class="navigation-menu">
-          <div class="navigation-item">
-            <h6 class="navigation-title">Home</h6>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-item">HOME</div>
+        <div class="sidebar-section">
+          <div class="section-header">
+            <span class="section-title">PROJECTS</span>
+            <img
+              class="section-toggle-icon"
+              src="<%= require('media/chevron-up.svg') %>"
+              alt="toggle dropdown"
+            />
           </div>
-          <div class="dropdown-menu">
-            <div class="navigation-item dropdown-header">
-              <h6 class="navigation-title">Projects</h6>
-              <img class="dropdown-icon"
-              src=<%=require("media/chevron-down.svg")%> alt="chevron up/down"
+          <div class="section-content hidden">
+            <div class="section-item add-project">
+              <img
+                class="add-project-icon"
+                src="<%= require('media/plus.svg') %>"
+                alt="add project"
+              />
+              <span class="add-project-label">ADD PROJECT</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="project-header">
+          <h1 class="project-title">HOME</h1>
+          <span class="project-indicator"></span>
+        </header>
+
+        <section class="task-section">
+          <header class="task-header">
+            <h2 class="task-header-title">TODAY</h2>
+            <div class="task-navigation">
+              <img
+                src="<%= require('media/chevron-left.svg') %>"
+                alt="previous"
+                class="nav-prev"
+              />
+              <img
+                src="<%= require('media/chevron-right.svg') %>"
+                alt="next"
+                class="nav-next"
               />
             </div>
-            <div class="dropdown-content">
-              <div class="dropdown-item">
-                <div class="color-indicator"></div>
-                <h6 class="project-title">Project 1</h6>
-              </div>
-              <div class="dropdown-item">
-                <div class="color-indicator"></div>
-                <h6 class="project-title">Project 2</h6>
-              </div>
-              <div class="dropdown-item">
-                <img class="add-icon" src=<%=require("media/plus.svg")%>
-                alt="add icon" />
-                <h6 class="add-title">Add Project</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="content-area">
-        <div class="task-column">
-          <div class="task-header">
-            <h1>TODAY</h1>
-            <div class="task-create">
-              <img src=<%=require("media/chevron-up.svg")%> alt="increase task
-              priority button" class="task-increase-priority">
-              <form class="task-form today-form high-priority">
-                <div class="task-type-container">
-                  <img class="task-type"
-                  src=<%=require("media/checkbox-blank-outline.svg")%> alt="task
-                  type button">
-                  <input type="text" class="task-input" />
-                </div>
-                <div class="task-priority-container">
-                  <input type="image" name="submit" class="submit-btn"
-                  src=<%=require("media/chevron-right.svg")%> alt="submit
-                  button" />
-                </div>
-              </form>
-              <img src=<%=require("media/chevron-down.svg")%> alt="decrease task
-              priority button" class="task-decrease-priority">
-            </div>
-          </div>
-          <ul class="task-list today-tasks">
-            <li class="task-item">
-              <div class="task-checkbox">
-                <input
-                  id="task-1"
-                  name="complete"
-                  type="checkbox"
-                  class="complete-checkbox"
+          </header>
+
+          <form class="task-form">
+            <div class="task-input-group">
+              <input
+                type="text"
+                id="task-input"
+                name="task-name"
+                placeholder="Add a task..."
+                class="task-input"
+              />
+              <button type="submit" class="task-submit-btn">
+                <img
+                  src="<%= require('media/chevron-right.svg') %>"
+                  alt="submit"
                 />
-                <label for="task-1">
-                  <div class="task-info">
-                    <div class="task-details">
-                      <p class="task-name">buy eggs akjsf hjksdfhladkshfkja dhfaskhj kj fdashl ks</p>
-                      <img src=<%=require("media/chevron-triple-up-thick.svg")%> alt="medium priority" class="task-priority filter-high-priority">
-                      <div class="task-tag">Tag</div>
-                    </div>
-                    <input type="date" class="task-date" />
-                  </div>
-                </label>
-              </div>
-              <img src=<%=require("media/delete-outline.svg")%> alt="trash icon"
-              class="delete-icon" />
-            </li>
-            <li class="task-item">
-              <div class="task-checkbox">
-                <input
-                  name="complete"
-                  type="checkbox"
-                  class="complete-checkbox"
-                />
-                <label for="complete">
-                  <div class="task-info">
-                    <div class="task-details">
-                      <p class="task-name">buy eggs</p>
-                      <div class="task-tag"></div>
-                    </div>
-                    <input type="date" class="task-date" />
-                  </div>
-                </label>
-              </div>
-              <img src=<%=require("media/delete-outline.svg")%> alt="trash icon"
-              class="delete-icon" />
-            </li>
-            <li class="task-item">
-              <div class="task-checkbox">
-                <input
-                  name="complete"
-                  type="checkbox"
-                  class="complete-checkbox"
-                />
-                <label for="complete">
-                  <div class="task-info">
-                    <div class="task-details">
-                      <p class="task-name">buy eggs</p>
-                      <div class="task-tag"></div>
-                    </div>
-                    <input type="date" class="task-date" />
-                  </div>
-                </label>
-              </div>
-              <img src=<%=require("media/delete-outline.svg")%> alt="trash icon"
-              class="delete-icon" />
-            </li>
-          </ul>
-        </div>
-        <div class="task-column">
-          <div class="task-header">
-            <h1>TOMORROW</h1>
-            <div class="task-create">
-              <img src=<%=require("media/chevron-up.svg")%> alt="increase task
-              priority button" class="task-increase-priority">
-              <form class="task-form tomorrow-form">
-                <div class="task-type-container">
-                  <img class="task-type"
-                  src=<%=require("media/checkbox-blank-outline.svg")%> alt="task
-                  type button">
-                  <input type="text" class="task-input" />
-                </div>
-                <div class="task-priority-container">
-                  <input type="image" name="submit" class="submit-btn"
-                  src=<%=require("media/chevron-right.svg")%> alt="submit
-                  button" />
-                </div>
-              </form>
-              <img src=<%=require("media/chevron-down.svg")%> alt="decrease task
-              priority button" class="task-decrease-priority">
+              </button>
             </div>
-          </div>
-          <ul class="task-list tomorrow-tasks"></ul>
-        </div>
-        <div class="task-column">
-          <div class="task-header">
-            <h1>UPCOMING</h1>
-            <div class="task-create">
-              <img src=<%=require("media/chevron-up.svg")%> alt="increase task
-              priority button" class="task-increase-priority">
-              <form class="task-form upcoming-form">
-                <div class="task-type-container">
-                  <img class="task-type"
-                  src=<%=require("media/checkbox-blank-outline.svg")%> alt="task
-                  type button">
-                  <input type="text" class="task-input" />
-                </div>
-                <div class="task-priority-container">
-                  <input type="date" class="task-date" />
-                  <input type="image" name="submit" class="submit-btn"
-                  src=<%=require("media/chevron-right.svg")%> alt="submit
-                  button" />
-                </div>
-              </form>
-              <img src=<%=require("media/chevron-down.svg")%> alt="decrease task
-              priority button" class="task-decrease-priority">
+
+            <div class="task-options-group">
+              <div class="task-priority">
+                <label for="task-priority-select">Priority:</label>
+                <select
+                  id="task-priority-select"
+                  name="priority"
+                  class="task-select"
+                >
+                  <option value="none">None</option>
+                </select>
+              </div>
+
+              <div class="task-date">
+                <label for="task-date-input">Date:</label>
+                <input
+                  id="task-date-input"
+                  type="date"
+                  name="date"
+                  class="task-date-input"
+                />
+              </div>
+
+              <div class="task-project">
+                <label for="task-project-select">Project:</label>
+                <select
+                  id="task-project-select"
+                  name="project"
+                  class="task-select"
+                >
+                  <option value="none">None</option>
+                </select>
+              </div>
             </div>
+          </form>
+
+          <div class="task-body">
           </div>
-          <ul class="task-list upcoming-tasks"></ul>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   </body>
 </html>
