@@ -9,7 +9,6 @@ class _TaskManager {
 
   createTask(name, priority, date, projectId) {
     const newTask = new Task(name, Number(priority), parse(date, "yyyy-MM-dd", new Date()), Number(projectId));
-    console.log(newTask);
     this._tasks.push(newTask);
   }
 
@@ -18,7 +17,6 @@ class _TaskManager {
   }
 
   updateTask(taskId, newName, newPriority, newDate, newProjectId) {
-    console.log(parse(newDate, "yyyy-MM-dd", Date.now()));
     const task = this.findTask(taskId);
     task.name = newName;
     task.priority = Number(newPriority);

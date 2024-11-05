@@ -19,6 +19,7 @@ import "styles/content-area.css";
   // that will handle what gets displayed
 
 import { initializeFormComponent } from "js/controllers/form-controller.js";
+import { initializeDateSwitchComponent } from "js/controllers/date-controller";
 
 // setup sidebar
 
@@ -28,8 +29,7 @@ import { initializeFormComponent } from "js/controllers/form-controller.js";
 window.addEventListener("DOMContentLoaded", () => {
   initializeFormComponent();
 
-  // date-switch elements
-  // on click
+  initializeDateSwitchComponent();
 
   // get project sidebar
   // on click toggle

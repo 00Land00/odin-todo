@@ -1,7 +1,7 @@
 import { format, addDays } from "date-fns";
 
 import { DateManager } from "js/managers/date-manager";
-import { TODAY, TOMORROW, UPCOMING } from "js/constants/dateConstants.js";
+import { TOMORROW, UPCOMING } from "js/constants/dateConstants.js";
 
 import { TaskManager } from "js/managers/task-manager";
 import { displayTasks } from "js/views/task-view";
@@ -52,4 +52,4 @@ function initializeFormComponent() {
   // we should add a close button to clear the text too perhaps, then we add the event handler here
 }
 
-export { initializeFormComponent };
+export { initializeFormComponent, setDateMin };

@@ -28,7 +28,7 @@ function filterByDate(taskList) {
 
     case UPCOMING:
       taskList = taskList.filter((task) => {
-        return isAfter(task.date, startOfTomorrow);
+        return isAfter(task.date, startOfTomorrow());
       });
       break;
   }
@@ -132,7 +132,6 @@ function createTaskElement(taskId, name, date, priority, completed) {
 }
 
 function createProjectOptionsElement(projectId) {
-  console.log(ProjectManager.getProjects());
   let projectList = [...ProjectManager.getProjects()];
   projectList = projectList.map((project) => {
     return `<option value="${project.id}" ${project.id === projectId ? 'selected' : ''}>${project.name}</option>`;
