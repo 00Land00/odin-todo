@@ -61,7 +61,7 @@
               <input
                 type="text"
                 id="task-input"
-                name="task-name"
+                name="name"
                 placeholder="Add a task..."
                 class="task-input"
               />
@@ -81,7 +81,10 @@
                   name="priority"
                   class="task-select"
                 >
-                  <option value="none">None</option>
+                  <option value="0">None</option>
+                  <option value="1">Low</option>
+                  <option value="2">Medium</option>
+                  <option value="3">High</option>
                 </select>
               </div>
 
@@ -102,7 +105,7 @@
                   name="project"
                   class="task-select"
                 >
-                  <option value="none">None</option>
+                  <option value="0">None</option>
                 </select>
               </div>
             </div>

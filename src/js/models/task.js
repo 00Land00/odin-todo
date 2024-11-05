@@ -1,17 +1,27 @@
-import { ProjectManager } from "js/project-manager.js";
+import { ProjectManager } from "js/managers/project-manager.js";
 
-import { isPast, isBefore } from "date-fns";
+import { isPast, isToday, isBefore } from "date-fns";
 
 export class Task {
   static nextId = 0;
 
-  constructor(description, date, projectId) {
+  /*
+    priority:
+      0 = none
+      1 = low
+      2 = moderate
+      3 = high
+  */
+
+  constructor(name, priority, date, projectId) {
     this._id = Task.nextId++;
 
-    this._description = description;
+    this._name = name;
+    this._priority = priority;
     this._date = date;
     this._projectId = projectId;
 
+    this._dateCreated = Date.now();
     this._dateCompleted = null;
     this._completed = false;
   }
@@ -20,21 +30,37 @@ export class Task {
     return this._id;
   }
 
-  get description() {
-    return this._description;
+  get name() {
+    return this._name;
   }
-  set description(newDescription) {
-    if (typeof newDescription !== "string") {
-      console.error("[ERROR] New description is not a string.");
+  set name(newName) {
+    if (typeof newName !== "string") {
+      console.error("[ERROR] New name is not a string.");
       return;
     }
 
-    if (!newDescription) {
-      console.error("[ERROR] Description cannot be empty.");
+    if (!newName) {
+      console.error("[ERROR] name cannot be empty.");
       return;
     }
 
-    this._description = newDescription;
+    this._name = newName;
+  }
+  get priority() {
+    return this._priority;
+  }
+  set priority(newPriority) {
+    if (typeof newPriority !== "number") {
+      console.error("[ERROR] New priority is not a number.");
+      return;
+    }
+
+    if (newPriority > 3 || newPriority < 0) {
+      console.error("[ERROR] New priority is an invalid value outside of 0 to 3 (inclusive)");
+      return;
+    }
+
+    this._priority = newPriority;
   }
   get date() {
     return this._date;
@@ -44,8 +70,8 @@ export class Task {
       console.error("[ERROR] New date is not a Date object.");
       return;
     }
-
-    if (isPast(newDate)) {
+    
+    if (isPast(newDate) && !isToday(newDate)) {
       console.error("[ERROR] Cannot change the date to the past.");
       return;
     }
@@ -69,6 +95,9 @@ export class Task {
     this._projectId = newProjectId;
   }
 
+  get dateCreated() {
+    return this._dateCreated;
+  }
   get dateCompleted() {
     return this._dateCompleted;
   }

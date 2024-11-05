@@ -1,14 +1,28 @@
-import { Project } from "js/models/projects.js";
+import { Project } from "js/models/project.js";
 
 class _ProjectManager {
   constructor() {
     this._projects = [];
-    this.curProject = null;
+    this._curProjectId = null;
+  }
+
+  get curProjectId() {
+    return this._curProjectId;
+  }
+
+  set curProjectId(newCurProjectId) {
+    if (typeof newCurProjectId !== "number") {
+      console.error("[ERROR] New current project id is not a Number.");
+      return;
+    }
+
+    this._curProjectId = newCurProjectId;
   }
 
   createProject(name, color) {
     const newProject = new Project(name, color);
     this._projects.push(newProject);
+    this._curProjectId = newProject.id;
   }
 
   findProject(projectId) {
@@ -33,4 +47,6 @@ class _ProjectManager {
 }
 
 const ProjectManager = new _ProjectManager();
+ProjectManager.createProject("None", "#000000");
+
 export { ProjectManager };
