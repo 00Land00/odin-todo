@@ -4,6 +4,7 @@ class _ProjectManager {
   constructor() {
     this._projects = [];
     this._curProjectId = null;
+    // isExpanded
   }
 
   get curProjectId() {

@@ -13,8 +13,13 @@
 
 .project-item {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+}
+
+.project-content {
+  display: flex;
   gap: 5px;
+  align-items: center;
 }
 
 .project-indicator {
@@ -24,6 +29,14 @@
 
   background-color: black;
   border-radius: 3px;
+}
+
+.project-delete-icon {
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+
+  visibility: hidden;
 }
 
 .add-project {

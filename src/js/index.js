@@ -4,27 +4,11 @@ import "styles/layout.css";
 import "styles/sidebar.css";
 import "styles/content-area.css";
 
-/*
-
-<div class="section-item project-item">
-  <span class="project-indicator"></span>
-  <span class="project-name">INBOX</span>
-</div>
-
-*/
-
 // connect the logic for projects
   // that will handle the logic for adding projects
-// connect the logic for switching days
-  // that will handle what gets displayed
 
 import { initializeFormComponent } from "js/controllers/form-controller.js";
 import { initializeDateSwitchComponent } from "js/controllers/date-controller";
-
-// setup sidebar
-
-// get data
-// display data
 
 window.addEventListener("DOMContentLoaded", () => {
   initializeFormComponent();
