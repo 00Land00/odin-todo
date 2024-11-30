@@ -30,6 +30,8 @@
 .nav-next {
   height: 50px;
   width: 50px;
+
+  cursor: pointer;
 }
 
 .task-input-group {
@@ -94,6 +96,7 @@
   color: black;
 
   outline: none;
+  cursor: pointer;
 }
 
 .task-select:focus {
@@ -116,6 +119,7 @@
   background: none;
   background-color: rgb(206, 206, 206);
   color: black;
+  cursor: pointer;
 }
 
 .task-date-input:focus {
@@ -139,6 +143,14 @@
   gap: 10px;
 }
 
+.task-content:hover {
+  padding: 0px 10px;
+  
+  background-color: rgb(206, 206, 206);
+  border-radius: 100px;
+  cursor: pointer;
+}
+
 .task-checkbox, .task-delete-icon {
   height: 20px;
   width: 20px;
@@ -147,6 +159,18 @@
 .task-title {
   font-family: 'GeneralSans-Medium';
   font-size: 1.3rem;
+
+  cursor: pointer;
+}
+
+.task-delete-icon {
+  visibility: hidden;
+
+  cursor: pointer;
+}
+
+.task-content:hover .task-delete-icon {
+  visibility: visible;
 }
 
 .task-item .task-options-group {

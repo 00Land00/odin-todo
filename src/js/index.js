@@ -4,27 +4,22 @@ import "styles/layout.css";
 import "styles/sidebar.css";
 import "styles/content-area.css";
 
-// connect the logic for projects
-  // that will handle the logic for adding projects
+import { loadLocalStorage } from "js/managers/storage-manager.js";
 
 import { initializeFormComponent } from "js/controllers/form-controller.js";
 import { initializeDateSwitchComponent } from "js/controllers/date-controller";
+import { initializeProjectComponent } from "js/controllers/project-controller.js";
+
+import { displayTasks } from "js/views/task-view.js";
 
 window.addEventListener("DOMContentLoaded", () => {
+  loadLocalStorage();
+
   initializeFormComponent();
 
   initializeDateSwitchComponent();
 
-  // get project sidebar
-  // on click toggle
+  initializeProjectComponent();
 
-  // get add project element
-  // on click
-
-  // get home button
-  // on click
-
-  // get data (local storage TODO)
-  // display projects
-  // display today and then we pass nothing so it defaults to everything
+  displayTasks();
 });
