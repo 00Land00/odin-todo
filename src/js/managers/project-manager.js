@@ -1,10 +1,11 @@
 import { Project } from "js/models/project.js";
+import { saveProjectsToLocalStorage } from "js/managers/storage-manager.js";
 
 class _ProjectManager {
   constructor() {
     this._projects = [];
     this._curProjectId = null;
-    // isExpanded
+    this._isExpanded = false;
   }
 
   get curProjectId() {
@@ -20,10 +21,20 @@ class _ProjectManager {
     this._curProjectId = newCurProjectId;
   }
 
+  get isExpanded() {
+    return this._isExpanded;
+  }
+
+  set isExpanded(newIsExpanded) {
+    this._isExpanded = Boolean(newIsExpanded);
+  }
+
   createProject(name, color) {
     const newProject = new Project(name, color);
     this._projects.push(newProject);
     this._curProjectId = newProject.id;
+
+    saveProjectsToLocalStorage();
   }
 
   findProject(projectId) {
@@ -31,23 +42,30 @@ class _ProjectManager {
   }
 
   updateProject(projectId, newName, newColor) {
-    const project = findProject(projectId);
+    const project = this.findProject(projectId);
     project.name = newName;
     project.newColor = newColor;
+
+    saveProjectsToLocalStorage();
   }
 
   removeProject(projectId) {
     this._projects = this._projects.filter(
       (project) => project.id !== projectId
     );
+
+    saveProjectsToLocalStorage();
   }
 
   getProjects() {
     return this._projects;
   }
+
+  setProjects(newProjects) {
+    this._projects = newProjects;
+    this.curProjectId = newProjects.length ? newProjects[0].id : null;
+  }
 }
 
 const ProjectManager = new _ProjectManager();
-ProjectManager.createProject("None", "#000000");
-
 export { ProjectManager };

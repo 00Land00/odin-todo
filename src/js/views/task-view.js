@@ -134,7 +134,7 @@ function createTaskElement(taskId, name, date, priority, completed) {
 function createProjectOptionsElement(projectId) {
   let projectList = [...ProjectManager.getProjects()];
   projectList = projectList.map((project) => {
-    return `<option value="${project.id}" ${project.id === projectId ? 'selected' : ''}>${project.name}</option>`;
+    return `<option value="${project.id}" ${project.id === projectId ? 'selected' : ''}>${project.name.toUpperCase()}</option>`;
   });
 
   return projectList.reduce((optionStr, option) => {
@@ -149,10 +149,8 @@ function createProjectOptions(taskElement, task) {
 }
 
 function attachTaskEventHandlers(taskElement, task) {
-  const checkboxElement = taskElement.querySelector(".task-checkbox");
-  const taskNameElement = taskElement.querySelector(".task-title");
-  checkboxElement.addEventListener("click", toggleTaskEH.bind(task));
-  taskNameElement.addEventListener("click", toggleTaskEH.bind(task));
+  const taskContentElement = taskElement.querySelector(".task-content");
+  taskContentElement.addEventListener("click", toggleTaskEH.bind(task));
 
   const deleteElement = taskElement.querySelector(".task-delete-icon");
   deleteElement.addEventListener("click", deleteTaskEH.bind(task));

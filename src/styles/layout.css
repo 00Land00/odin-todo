@@ -31,3 +31,7 @@ img, input[type="image"] {
 .hidden {
   visibility: hidden;
 }
+
+.removed {
+  display: none;
+}
