@@ -4,29 +4,21 @@ import "styles/layout.css";
 import "styles/sidebar.css";
 import "styles/content-area.css";
 
-// connect the logic for projects
-  // that will handle the logic for adding projects
-
 import { initializeFormComponent } from "js/controllers/form-controller.js";
 import { initializeDateSwitchComponent } from "js/controllers/date-controller";
 import { initializeProjectComponent } from "js/controllers/project-controller.js";
 
 window.addEventListener("DOMContentLoaded", () => {
+  // fetch from local storage (storage-manager.js)
+    // go through all tasks, for each completed task, if datecompleted has passed over 1 day, do not include it any longer
+    // create functions that will be called by other managers to trigger the storing process
+
   initializeFormComponent();
 
   initializeDateSwitchComponent();
 
-  // get project sidebar
-  // on click toggle
   initializeProjectComponent();
 
-  // get add project element
-  // on click
-
-  // get home button
-  // on click
-
-  // get data (local storage TODO)
-  // display projects
-  // display today and then we pass nothing so it defaults to everything
+  // updateProjectTitle()
+  // displayProjects()
 });

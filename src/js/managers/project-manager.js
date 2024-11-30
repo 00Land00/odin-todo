@@ -53,6 +53,8 @@ class _ProjectManager {
   getProjects() {
     return this._projects;
   }
+
+  // setProjects(newProjects)
 }
 
 const ProjectManager = new _ProjectManager();

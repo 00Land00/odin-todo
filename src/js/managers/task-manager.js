@@ -37,6 +37,8 @@ class _TaskManager {
   getTasks() {
     return this._tasks;
   }
+
+  // setTasks(newTasks) 
 }
 
 const TaskManager = new _TaskManager();
