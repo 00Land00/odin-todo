@@ -1,7 +1,12 @@
+.sidebar-item {
+  cursor: pointer;
+}
+
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 
 .section-content {
@@ -14,6 +19,7 @@
 .project-item {
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .project-content {
@@ -31,6 +37,10 @@
   border-radius: 3px;
 }
 
+.project-input {
+  width: 100%;
+}
+
 .project-delete-icon {
   height: 20px;
   width: 20px;
@@ -39,10 +49,15 @@
   visibility: hidden;
 }
 
+.project-item:hover .project-delete-icon {
+  visibility: visible;
+}
+
 .add-project {
   display: flex;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
 }
 
 .add-project-icon {

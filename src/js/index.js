@@ -9,6 +9,7 @@ import "styles/content-area.css";
 
 import { initializeFormComponent } from "js/controllers/form-controller.js";
 import { initializeDateSwitchComponent } from "js/controllers/date-controller";
+import { initializeProjectComponent } from "js/controllers/project-controller.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   initializeFormComponent();
@@ -17,6 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // get project sidebar
   // on click toggle
+  initializeProjectComponent();
 
   // get add project element
   // on click

@@ -4,7 +4,7 @@ class _ProjectManager {
   constructor() {
     this._projects = [];
     this._curProjectId = null;
-    // isExpanded
+    this._isExpanded = false;
   }
 
   get curProjectId() {
@@ -20,6 +20,14 @@ class _ProjectManager {
     this._curProjectId = newCurProjectId;
   }
 
+  get isExpanded() {
+    return this._isExpanded;
+  }
+
+  set isExpanded(newIsExpanded) {
+    this._isExpanded = Boolean(newIsExpanded);
+  }
+
   createProject(name, color) {
     const newProject = new Project(name, color);
     this._projects.push(newProject);
@@ -31,7 +39,7 @@ class _ProjectManager {
   }
 
   updateProject(projectId, newName, newColor) {
-    const project = findProject(projectId);
+    const project = this.findProject(projectId);
     project.name = newName;
     project.newColor = newColor;
   }
