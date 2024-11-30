@@ -1,4 +1,5 @@
 import { Project } from "js/models/project.js";
+import { saveProjectsToLocalStorage } from "js/managers/storage-manager.js";
 
 class _ProjectManager {
   constructor() {
@@ -32,6 +33,8 @@ class _ProjectManager {
     const newProject = new Project(name, color);
     this._projects.push(newProject);
     this._curProjectId = newProject.id;
+
+    saveProjectsToLocalStorage();
   }
 
   findProject(projectId) {
@@ -42,22 +45,27 @@ class _ProjectManager {
     const project = this.findProject(projectId);
     project.name = newName;
     project.newColor = newColor;
+
+    saveProjectsToLocalStorage();
   }
 
   removeProject(projectId) {
     this._projects = this._projects.filter(
       (project) => project.id !== projectId
     );
+
+    saveProjectsToLocalStorage();
   }
 
   getProjects() {
     return this._projects;
   }
 
-  // setProjects(newProjects)
+  setProjects(newProjects) {
+    this._projects = newProjects;
+    this.curProjectId = newProjects.length ? newProjects[0].id : null;
+  }
 }
 
 const ProjectManager = new _ProjectManager();
-ProjectManager.createProject("None", "#000000");
-
 export { ProjectManager };
