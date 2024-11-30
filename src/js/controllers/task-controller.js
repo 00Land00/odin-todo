@@ -9,9 +9,10 @@ function toggleTaskEH() {
   displayTasks();
 }
 
-function deleteTaskEH() {
+function deleteTaskEH(event) {
   TaskManager.removeTask(this.id);
   displayTasks();
+  event.stopPropagation();
 }
 
 function priorityChangeEH(event) {

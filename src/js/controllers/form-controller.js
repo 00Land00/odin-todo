@@ -3,6 +3,7 @@ import { format, addDays } from "date-fns";
 import { DateManager } from "js/managers/date-manager";
 import { TOMORROW, UPCOMING } from "js/constants/dateConstants.js";
 
+import { ProjectManager } from "js/managers/project-manager";
 import { TaskManager } from "js/managers/task-manager";
 import { displayTasks } from "js/views/task-view";
 
@@ -24,6 +25,23 @@ function setDateMin() {
   dateElement.value = formattedDate;
 }
 
+function createProjectOptionsElement() {
+  let projectList = [...ProjectManager.getProjects()];
+  projectList = projectList.map((project) => {
+    return `<option value="${project.id}" ${ProjectManager.curProjectId === project.id ? 'selected' : ''} >${project.name.toUpperCase()}</option>`;
+  });
+
+  return projectList.reduce((optionStr, option) => {
+    return optionStr + option;
+  }, '');
+}
+
+function updateProjectDropdown() {
+  const projectSelectElement = document.querySelector("#task-project-select");
+  const optionsInnerHTML = createProjectOptionsElement();
+  projectSelectElement.innerHTML = optionsInnerHTML;
+}
+
 function taskFormEventHandler() {
   const formElement = document.querySelector(".task-form");
   const formInputElement = document.querySelector(".task-input");
@@ -42,6 +60,7 @@ function taskFormEventHandler() {
 
 function initializeFormComponent() {
   setDateMin();
+  updateProjectDropdown();
 
   const formElement = document.querySelector(".task-form");
   formElement.addEventListener("submit", (e) => {
@@ -52,4 +71,4 @@ function initializeFormComponent() {
   // we should add a close button to clear the text too perhaps, then we add the event handler here
 }
 
-export { initializeFormComponent, setDateMin };
+export { initializeFormComponent, setDateMin, updateProjectDropdown };

@@ -111,8 +111,8 @@ export class Task {
       console.error("[ERROR] New completed date is not a Date object.");
       return;
     }
-
-    if (isBefore(newDateCompleted, this.date)) {
+  
+    if (isBefore(newDateCompleted, this.dateCreated)) {
       console.error(
         "[ERROR] Completion date cannot occur before the date this task was created."
       );

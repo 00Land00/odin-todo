@@ -1,6 +1,7 @@
 import { ProjectManager } from "js/managers/project-manager.js";
 
 import { projectClickEH, projectRenameEnterEH, projectRenameClickOutsideEH, projectDeleteEH, projectAddEH } from "js/controllers/project-controller.js";
+import { updateProjectDropdown } from "../controllers/form-controller.js";
 
 import { displayTasks } from "js/views/task-view.js";
 
@@ -41,7 +42,7 @@ function createProjectElement(projectId, name, color) {
     <div class="project-content">
       <span class="project-indicator" style="background-color: ${color};"></span>
       <span class="project-name">${name.toUpperCase()}</span>
-      <input type="text" class="project-input removed" placeholder="${name}" />
+      <input type="text" maxlength="15" class="project-input removed" placeholder="${name}" />
     </div>
     <img
       class="project-delete-icon"
@@ -116,6 +117,7 @@ function displayProjects() {
   const addProjectElement = createAddProject();
   projectListElement.appendChild(addProjectElement);
 
+  updateProjectDropdown();
   displayTasks();
 }
 
