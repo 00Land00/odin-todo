@@ -5,5 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body></body>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-item">HOME</div>
+        <div class="sidebar-section">
+          <div class="section-header">
+            <span class="section-title">PROJECTS</span>
+            <img
+              class="section-toggle-icon"
+              src="<%= require('media/chevron-up.svg') %>"
+              alt="toggle dropdown"
+            />
+          </div>
+          <div class="section-content hidden">
+            <div class="section-item add-project">
+              <img
+                class="add-project-icon"
+                src="<%= require('media/plus.svg') %>"
+                alt="add project"
+              />
+              <span class="add-project-label">ADD PROJECT</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="project-header">
+          <h1 class="project-title">HOME</h1>
+          <span class="project-indicator"></span>
+        </header>
+
+        <section class="task-section">
+          <header class="task-header">
+            <h2 class="task-header-title">TODAY</h2>
+            <div class="task-navigation">
+              <img
+                src="<%= require('media/chevron-left.svg') %>"
+                alt="previous"
+                class="nav-prev"
+              />
+              <img
+                src="<%= require('media/chevron-right.svg') %>"
+                alt="next"
+                class="nav-next"
+              />
+            </div>
+          </header>
+
+          <form class="task-form">
+            <div class="task-input-group">
+              <input
+                type="text"
+                id="task-input"
+                name="name"
+                placeholder="Add a task..."
+                class="task-input"
+              />
+              <button type="submit" class="task-submit-btn">
+                <img
+                  src="<%= require('media/chevron-right.svg') %>"
+                  alt="submit"
+                />
+              </button>
+            </div>
+
+            <div class="task-options-group">
+              <div class="task-priority">
+                <label for="task-priority-select">Priority:</label>
+                <select
+                  id="task-priority-select"
+                  name="priority"
+                  class="task-select"
+                >
+                  <option value="0">None</option>
+                  <option value="1">Low</option>
+                  <option value="2">Medium</option>
+                  <option value="3">High</option>
+                </select>
+              </div>
+
+              <div class="task-date">
+                <label for="task-date-input">Date:</label>
+                <input
+                  id="task-date-input"
+                  type="date"
+                  name="date"
+                  class="task-date-input"
+                />
+              </div>
+
+              <div class="task-project">
+                <label for="task-project-select">Project:</label>
+                <select
+                  id="task-project-select"
+                  name="project"
+                  class="task-select"
+                >
+                  <option value="0">None</option>
+                </select>
+              </div>
+            </div>
+          </form>
+
+          <div class="task-body">
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
