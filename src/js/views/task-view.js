@@ -1,4 +1,4 @@
-import { isToday, isTomorrow, isAfter, startOfTomorrow, format } from "date-fns";
+import { endOfToday, isTomorrow, isBefore, isAfter, startOfTomorrow, format } from "date-fns";
 
 import { toggleTaskEH, deleteTaskEH, priorityChangeEH, dateChangeEH, projectChangeEH } from "js/controllers/task-controller.js";
 
@@ -16,7 +16,7 @@ function filterByDate(taskList) {
   switch(DateManager.dateConstant) {
     case TODAY:
       taskList = taskList.filter((task) => {
-        return isToday(task.date);
+        return isBefore(task.date, endOfToday());
       });
       break;
   
