@@ -8,19 +8,20 @@
   <body>
     <div class="app-container">
       <!-- Sidebar -->
-      <aside class="sidebar">
-        <div class="sidebar-item">HOME</div>
-        <div class="sidebar-section">
-          <div class="section-header"></div>
-          <div class="section-content"></div>
+      <div class="sidebar">
+        <div class="sidebar-body">
+          <div class="sidebar-item">HOME</div>
+          <div class="sidebar-section">
+            <div class="section-header"></div>
+            <div class="section-content"></div>
+          </div>
         </div>
-      </aside>
+      </div>
 
       <!-- Main Content -->
       <main class="main-content">
-        <header class="project-header"></header>
-
-        <section class="task-section">
+        <div class="header-section">
+          <header class="project-header"></header>
           <header class="task-header">
             <h2 class="task-header-title">TODAY</h2>
             <div class="task-navigation">
@@ -36,7 +37,6 @@
               />
             </div>
           </header>
-
           <form class="task-form">
             <div class="task-input-group">
               <input
@@ -54,7 +54,6 @@
                 />
               </button>
             </div>
-
             <div class="task-options-group">
               <div class="task-priority">
                 <label for="task-priority-select">Priority:</label>
@@ -69,7 +68,6 @@
                   <option value="3">HIGH</option>
                 </select>
               </div>
-
               <div class="task-date">
                 <label for="task-date-input">Date:</label>
                 <input
@@ -79,7 +77,6 @@
                   class="task-date-input"
                 />
               </div>
-
               <div class="task-project">
                 <label for="task-project-select">Project:</label>
                 <select
@@ -91,10 +88,10 @@
               </div>
             </div>
           </form>
+        </div>
 
-          <div class="task-body">
-          </div>
-        </section>
+        <div class="task-body">
+        </div>
       </main>
     </div>
   </body>
